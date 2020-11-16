@@ -1,27 +1,16 @@
 <template>
-  <div class="home">
-    <main-nav-bar/>
+  <div class="about">
+  <main-nav-bar/>
+    <h1>This is an about page</h1>
   </div>
 </template>
-
 <script>
-
 import mainNavBar from '../components/mainNavBar.vue';
 
 export default {
-
-  name: 'Home',
-
+  name: 'Diario',
   components: {
     mainNavBar,
-
-  },
-
-  data() {
-
-  },
-  created() {
-
   },
 };
 </script>
