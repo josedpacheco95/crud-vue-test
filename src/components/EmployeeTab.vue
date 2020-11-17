@@ -1,6 +1,6 @@
 <template>
     <table class="table">
-  <thead>
+  <thead v-once>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre del Empleado</th>
@@ -68,7 +68,7 @@
                   id="my-modal"
                   hide-footer>
                  <h4>¿Quieres eliminar el empleado?</h4>
-                 <b-button  variant="light" block @click="isDeleted">Si</b-button>
+                 <b-button  variant="light" block @click="isEmployeeDeleted">Si</b-button>
                   <b-button variant="light" block @click="$bvModal.hide('my-modal')">No</b-button>
               </b-modal>
           </b-button-group>
@@ -100,6 +100,7 @@ export default {
         profile_image: '',
       },
       currentIndex: 0,
+      employeeDeleted: false,
     };
   },
   methods: {
@@ -108,7 +109,14 @@ export default {
       let showIndex=this.currentIndex;// eslint-disable-line
       this.currentEmployee = true;
       this.getDetailData(showIndex);
+      this.isDeleted(showIndex);// eslint-disable-line
       return console.log(this.currentIndex+1);// eslint-disable-line
+    },
+    isEmployeeDeleted() {
+      // ..
+      console.log('borrando');
+      this.employeeDeleted = true;
+      this.isDeleted();
     },
     getDetailData(id) {
       api.getEmployee(id)
@@ -117,9 +125,21 @@ export default {
     hideModal() {
       this.$refs['my-modal'].hide();// eslint-disable-line
     },
-    isDeleted() {
-      console.log('borrado');
-      this.hideModal();
+    isDeleted(id) {
+      if (this.employeeDeleted === true) {
+        fetch(`http://dummy.restapiexample.com/api/v1/delete/${id}`,
+          {
+            method: 'DELETE',
+          }).then(() => {
+          console.log((res) => res.json())
+            .then((res) => console.log(res));
+        })
+          .catch((e) => {
+            console.log(e);
+          });
+        this.$refs['my-modal'].hide();
+        this.employeeDeleted = false;
+      }
     },
   },
   mounted() {
