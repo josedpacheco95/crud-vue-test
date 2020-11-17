@@ -68,7 +68,7 @@
                   id="my-modal"
                   hide-footer>
                  <h4>¿Quieres eliminar el empleado?</h4>
-                 <b-button  variant="light" block @click="isEmployeeDeleted">Si</b-button>
+                  <b-button  variant="light" block @click="isEmployeeDeleted" href="/">Si</b-button>
                   <b-button variant="light" block @click="$bvModal.hide('my-modal')">No</b-button>
               </b-modal>
           </b-button-group>
@@ -130,15 +130,13 @@ export default {
         fetch(`http://dummy.restapiexample.com/api/v1/delete/${id}`,
           {
             method: 'DELETE',
-          }).then(() => {
-          console.log((res) => res.json())
-            .then((res) => console.log(res));
-        })
+          })
+          .then((res) => res.json())
+          .then((res) => console.log(res))
+          .then(() => { this.employeeDeleted = false; })
           .catch((e) => {
             console.log(e);
           });
-        this.$refs['my-modal'].hide();
-        this.employeeDeleted = false;
       }
     },
   },
