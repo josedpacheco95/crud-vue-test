@@ -63,6 +63,7 @@
                 variant="danger"
                 v-b-modal="'my-modal'"
               >
+              <!--Por consola se puede verificar que consumio correctamente la API de borrar!-->
                 Eliminar</b-button>
                <b-modal
                   id="my-modal"
