@@ -7,24 +7,28 @@ const http = axios.create({
   },
 });
 
-export default class EmployeeApi {
+class EmployeeApi {
   // Tener toda la data de los empleado
   // eslint-disable-next-line no-unused-vars
-  static getAll=() => http.get('employee')
+  static getAll=() => http.get('/employees')
 
   // Tener la data de un solo empleado
-   // eslint-disable-next-line no-unused-vars
-   get=(id) => http.get(`/employee/${this.id}`)
+  // eslint-disable-next-line no-unused-vars
+  get(id) {// eslint-disable-line
+    return http.get(`/employee/${id}`);// eslint-disable-line
+  }
 
-   // Crear registro de un nuevo empleado}
+  // Crear registro de un nuevo empleado}
     // eslint-disable-next-line no-unused-vars
-    create=(data) => http.post('/create', this.data)
+    createData=(data) => http.post('/create', this.data)
 
     // Actualizar registro de un empleado
     // eslint-disable-next-line no-unused-vars
-   update = (id, data) => http.put(`/update/${this.id}`, this.data)
+   updateData = (id, data) => http.put(`/update/${this.id}`, this.data)
 
    // Borrar la data de los empleados
    // eslint-disable-next-line no-unused-vars
    borrar=(id) => http.delete(`/delete/${this.id}`)
 }
+
+export default new EmployeeApi();

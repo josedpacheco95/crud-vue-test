@@ -13,7 +13,8 @@ function getAllEmployees() {
 function getEmployee(id) {
   return fetch(`http://dummy.restapiexample.com/api/v1/employee/${id}`)
     .then((res) => res.json())
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((error) => console.log('error', error));
 }
 
 export default {

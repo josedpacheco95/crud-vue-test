@@ -4,7 +4,7 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre del Empleado</th>
-      <th scope="col">Opciones</th>
+      <th scope="col">Opciones(Doble click para que funcione)</th>
     </tr>
   </thead>
   <tbody>
@@ -17,33 +17,44 @@
       <td>{{empleado.employee_name}}</td>
       <td>
           <b-button-group>
-              <b-button variant="info" v-b-modal.modal-1>
+              <b-button
+                variant="info"
+                v-b-modal.modal-1
+                @click="$bvModal.show('modal-1')">
                 Detalle
               </b-button>
-            <div v-if='currentEmployee===true'>
-              <div v-if='empleado.profile_image===""'>
+            <div v-show='currentEmployee==true'>
+              <div v-show='empleado.profile_image===""'>
                 <!--Modal para detalle de cada empleado!-->
                 <b-modal
                   id="modal-1"
                   title="Detalle de Empleado"
+                  no-body
+                  style="max-width: 20rem;"
+                  img-src="../assets/logo.png"
+                  img-alt="Image"
+                  img-top
                   hide-footer>
-                    <b-avatar src="../assets/avatar.png"></b-avatar>
                       <template #header>
-                          <h4 class="mb-0">Empleado{{index}}</h4>
+                          <h4 class="mb-0">{{employeeDetail.name}}</h4>
                       </template>
                       <b-card-body>
+                        <b-avatar src="../assets/avatar.png"></b-avatar>
                           <b-card-title>
-                            Salario:$
+                            {{`Salario: ${employeeDetail.employee_salary} $`}}
                           </b-card-title>
                           <b-card-sub-title class="mb-2">
-                            Edad:  años
+                            {{`Edad: ${employeeDetail.employee_age} años`}}
                             </b-card-sub-title>
                       </b-card-body>
-                </b-modal>
-              </div>
-              <div v-else>
-                <b-modal id="modal-1" title="Detalle de Empleado">
-                    <b-avatar src=""></b-avatar>
+                       <b-button
+                          class="mt-3"
+                          variant="success"
+                          block
+                          @click="$bvModal.hide('modal-1')"
+                        >
+                         OK
+                         </b-button>
                 </b-modal>
               </div>
             </div>
@@ -59,6 +70,8 @@
 </template>
 
 <script>
+import api from '../employeeApi';
+
 export default {
   name: 'employeeTab',
   props: {
@@ -70,13 +83,31 @@ export default {
   data() {
     return {
       currentEmployee: false,
+      employeeDetail: {
+        id: '',
+        employee_name: '',
+        employee_salary: 0,
+        employee_age: 0,
+        profile_image: '',
+      },
+      currentIndex: 0,
     };
   },
   methods: {
     detailEmployee(index) {
+      this.currentIndex = index + 1;
+      let showIndex=this.currentIndex;// eslint-disable-line
       this.currentEmployee = true;
-      return console.log(index + 1);
+      this.getDetailData(showIndex);
+      return console.log(this.currentIndex+1);// eslint-disable-line
     },
+    getDetailData(id) {
+      api.getEmployee(id)
+        .then((employeeDetail) => (this.employeeDetail = employeeDetail));// eslint-disable-line
+    },
+  },
+  mounted() {
+    this.getDetailData();
   },
 };
 </script>
