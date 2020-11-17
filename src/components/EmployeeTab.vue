@@ -59,7 +59,18 @@
               <!--Modal para editar informacion del empleado !-->
               <b-button variant="secondary">Editar</b-button>
               <!--modal para eliminar empleado de la base de datos !-->
-              <b-button variant="danger">Eliminar</b-button>
+              <b-button
+                variant="danger"
+                v-b-modal="'my-modal'"
+              >
+                Eliminar</b-button>
+               <b-modal
+                  id="my-modal"
+                  hide-footer>
+                 <h4>¿Quieres eliminar el empleado?</h4>
+                 <b-button  variant="light" block @click="isDeleted">Si</b-button>
+                  <b-button variant="light" block @click="$bvModal.hide('my-modal')">No</b-button>
+              </b-modal>
           </b-button-group>
         </td>
     </tr>
@@ -102,6 +113,13 @@ export default {
     getDetailData(id) {
       api.getEmployee(id)
         .then((employeeDetail) => (this.employeeDetail = employeeDetail));// eslint-disable-line
+    },
+    hideModal() {
+      this.$refs['my-modal'].hide();// eslint-disable-line
+    },
+    isDeleted() {
+      console.log('borrado');
+      this.hideModal();
     },
   },
   mounted() {
