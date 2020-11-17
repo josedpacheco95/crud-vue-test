@@ -1,7 +1,22 @@
 <template>
   <div class="about">
-    <h1 class="mx-auto">Registro de trabajo</h1>
-    <table class="table">
+    <h1 id="titulo" class="mx-auto">Registro de trabajo</h1>
+    <p>Primero que todo estoy agradecido por la portunidad. 
+      Disculpen la tardanza no quiero excusarme pero no he 
+      podido concentrarme rapido, estos dias he tenido que
+      cuidar a mi abuela que se enfermo de covid, eso me
+      consumio bastante tiempo. No he dormido un dia para 
+      poder terminar todo, primero me familiarice con Vue
+      para luego desarrollar, mas que todo lei libros y vi
+      el curso de Platzi de Vue. La libreria de css que use
+      fue la de bootstrapp y bootstap vue, en general
+      me gusto trabajar con Vue, lastima que no pude usar 
+      Vuex pero vi que es parecido a Redux, dedicandole tiempo
+      con calma me familiarizo rapido. Estoy muy apenado por la 
+      tardanza. Habian mas detalles y funciones que me hubiesen
+      gustado hacer con mas tiempo las hubiese hecho.
+    </p>
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">Items</th>
@@ -61,12 +76,14 @@
       <td>Si</td>
       <td>Ya tengo experiencia trabajando
         con git y github, fue una de las
-        tareas mas sencillas.</td>
+        tareas mas sencillas. Aunque me confie un poco, 
+        y cometi un error, por suerto tenia un backup
+        sino hubiese perdido todo</td>
     </tr>
     <tr>
       <th scope="row">7</th>
-      <td>¿?</td>
-      <td>the Bird</td>
+      <td>Si</td>
+      <td>Fue literal buscar informacion en el navegador y listo</td>
     </tr>
   </tbody>
 </table>
@@ -81,3 +98,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  #titulo{
+    background-color: lightgrey;
+  }
+</style>
