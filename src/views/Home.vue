@@ -1,27 +1,30 @@
 <template>
   <div class="home">
-    <main-nav-bar/>
+    <employee-nav/>
+    <employee-tab :employees="employees"/>
   </div>
 </template>
 
 <script>
-
-import mainNavBar from '../components/mainNavBar.vue';
+import EmployeeTab from '@/components/EmployeeTab.vue';
+import EmployeeNav from '../components/EmployeeNav.vue';
+import api from '../employeeApi'; // eslint-disable-line
 
 export default {
 
   name: 'Home',
 
   components: {
-    mainNavBar,
-
+    EmployeeNav,
+    EmployeeTab,
   },
-
   data() {
-
+    return {
+      employees: [],
+    };
   },
   created() {
-
+    api.getAllEmployees().then(employees => (this.employees = employees)); // eslint-disable-line
   },
 };
 </script>
