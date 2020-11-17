@@ -20,7 +20,7 @@ class EmployeeApi {
 
   // Crear registro de un nuevo empleado}
     // eslint-disable-next-line no-unused-vars
-    createData=(data) => http.post('/create', this.data)
+    createData=(data) => http.post('/create', data)
 
     // Actualizar registro de un empleado
     // eslint-disable-next-line no-unused-vars

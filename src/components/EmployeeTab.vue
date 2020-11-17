@@ -35,11 +35,9 @@
                   img-alt="Image"
                   img-top
                   hide-footer>
-                      <template #header>
-                          <h4 class="mb-0">{{employeeDetail.name}}</h4>
-                      </template>
                       <b-card-body>
                         <b-avatar src="../assets/avatar.png"></b-avatar>
+                          <b-card-title>{{employeeDetail.employee_name}}</b-card-title>
                           <b-card-title>
                             {{`Salario: ${employeeDetail.employee_salary} $`}}
                           </b-card-title>
