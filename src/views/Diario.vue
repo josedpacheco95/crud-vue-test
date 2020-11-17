@@ -1,18 +1,18 @@
 <template>
   <div class="about">
     <h1 id="titulo" class="mx-auto">Registro de trabajo</h1>
-    <p>Primero que todo estoy agradecido por la portunidad. 
-      Disculpen la tardanza no quiero excusarme pero no he 
+    <p>Primero que todo estoy agradecido por la portunidad.
+      Disculpen la tardanza no quiero excusarme pero no he
       podido concentrarme rapido, estos dias he tenido que
       cuidar a mi abuela que se enfermo de covid, eso me
-      consumio bastante tiempo. No he dormido un dia para 
+      consumio bastante tiempo. No he dormido un dia para
       poder terminar todo, primero me familiarice con Vue
       para luego desarrollar, mas que todo lei libros y vi
       el curso de Platzi de Vue. La libreria de css que use
       fue la de bootstrapp y bootstap vue, en general
-      me gusto trabajar con Vue, lastima que no pude usar 
+      me gusto trabajar con Vue, lastima que no pude usar
       Vuex pero vi que es parecido a Redux, dedicandole tiempo
-      con calma me familiarizo rapido. Estoy muy apenado por la 
+      con calma me familiarizo rapido. Estoy muy apenado por la
       tardanza. Habian mas detalles y funciones que me hubiesen
       gustado hacer con mas tiempo las hubiese hecho.
     </p>
@@ -76,7 +76,7 @@
       <td>Si</td>
       <td>Ya tengo experiencia trabajando
         con git y github, fue una de las
-        tareas mas sencillas. Aunque me confie un poco, 
+        tareas mas sencillas. Aunque me confie un poco,
         y cometi un error, por suerto tenia un backup
         sino hubiese perdido todo</td>
     </tr>
