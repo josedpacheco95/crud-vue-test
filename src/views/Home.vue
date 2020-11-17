@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <employee-nav/>
-    <employee-tab :employees="employees"/>
+    <employee-tab
+      :employees="employees"
+    />
   </div>
 </template>
 
@@ -21,6 +23,8 @@ export default {
   data() {
     return {
       employees: [],
+      currentEmployee: {},
+      currentIndex: 0,
     };
   },
   created() {
