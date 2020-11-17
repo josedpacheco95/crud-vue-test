@@ -87,6 +87,7 @@
     </tr>
   </tbody>
 </table>
+  <main-nav-bar/>
   </div>
 </template>
 <script>
