@@ -83,7 +83,10 @@
     <tr>
       <th scope="row">7</th>
       <td>Si</td>
-      <td>Fue literal buscar informacion en el navegador y listo</td>
+      <td>Fue muchisimo mas dificil de lo que
+        esperaba tuve que hacerlo despues de poder
+        dormir y con calma se me hizo mas sencillo
+      </td>
     </tr>
   </tbody>
 </table>
