@@ -1,4 +1,4 @@
-const url = 'http://dummy.restapiexample.com/api/v1/employees';
+const url = 'https://dummy.restapiexample.com/api/v1/employees';
 
 /* Pude hacer una clase pero es practicamente lo mismo que
 exportar un objectos con funcionesqueria probar algo distinto */
@@ -11,7 +11,7 @@ function getAllEmployees() {
 }
 
 function getEmployee(id) {
-  return fetch(`http://dummy.restapiexample.com/api/v1/employee/${id}`)
+  return fetch(`https://dummy.restapiexample.com/api/v1/employee/${id}`)
     .then((res) => res.json())
     .then((res) => res.data)
     .catch((error) => console.log('error', error));

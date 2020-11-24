@@ -196,7 +196,7 @@ export default {
     },
     isDeleted(id) {
       if (this.employeeDeleted === true) {
-        fetch(`http://dummy.restapiexample.com/api/v1/delete/${id}`,
+        fetch(`https://dummy.restapiexample.com/api/v1/delete/${id}`,
           {
             method: 'DELETE',
           })
