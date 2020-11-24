@@ -51,12 +51,11 @@
     </tr>
     <tr>
       <th scope="row">4</th>
-      <td>NO</td>
+      <td>SI</td>
       <td>
-        No lo pude terminar para que me diera
-        de entregar todo a tiempo y no en la noche
-        y poder subir el proyecto completo
-        a github y trabajar con heroku
+        Editado:Al final lo realice. En el console log
+        se puede ver todo con detalles, hay errores
+        con de network pero me imagino que es por la api
       </td>
     </tr>
     <tr>
