@@ -43,4 +43,13 @@ export default {
         align-items: center;
         font-weight: bold;
     }
+        display:flex;
+        align-items: center;
+    }
+    span {
+        font-size: x-large;
+        text-align:center;
+        padding-top: 3%;
+    }
+
 </style>
