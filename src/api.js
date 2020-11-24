@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'http://dummy.restapiexample.com/api/v1',
+  baseURL: 'https://dummy.restapiexample.com/api/v1',
   headers: {
     'Content-type': 'application/json',
   },
@@ -24,7 +24,7 @@ export default class EmployeeApi {
 
     // Actualizar registro de un empleado
     // eslint-disable-next-line no-unused-vars
-   updateData = (id, data) => http.put(`/update/${this.id}`, this.data)
+   updateData = (id, data) => http.put(`/update/${id}`, data)
 
    // Borrar la data de los empleados
    // eslint-disable-next-line no-unused-vars

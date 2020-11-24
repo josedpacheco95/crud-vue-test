@@ -57,7 +57,65 @@
               </div>
             </div>
               <!--Modal para editar informacion del empleado !-->
-              <b-button variant="secondary">Editar</b-button>
+              <b-button
+                variant="secondary"
+                v-b-modal="'modal-update'">
+                Editar
+              </b-button>
+              <b-modal
+                id="modal-update"
+                hide-footer
+              hide-header
+              title="Actualizar empleado">
+                <b-form @submit="onSubmit">
+                  <b-form-group
+                    id="input-group-1"
+                    label="Nombre y Apellido:"
+                    label-for="input-1"
+                  >
+                  <b-form-input
+                    id="input-1"
+                    v-model="form.email"
+                    type="text"
+                    required
+                    placeholder="Introduzca nombre y apellido"
+                    ></b-form-input>
+                  </b-form-group>
+
+                  <b-form-group
+                    id="input-group-2"
+                    label="Salario"
+                    label-for="input-2">
+                    <b-form-input
+                      id="input-2"
+                      v-model="form.name"
+                      type="number"
+                      required
+                      placeholder="Introduzca salario..."
+                    ></b-form-input>
+                  </b-form-group>
+                  <b-form-group
+                    id="input-group-2"
+                    label="Edad:"
+                    label-for="input-3">
+                    <b-form-input
+                      id="input-3"
+                      v-model="form.name"
+                      type="number"
+                      required
+                      placeholder="Introduzca edad..."
+                    ></b-form-input>
+                  </b-form-group>
+                  <b-button type="submit" variant="primary">Enviar</b-button>
+                </b-form>
+                <b-button
+                  variant="light"
+                  block
+                  @click="$bvModal.hide('modal-update')">
+                    Salir
+                </b-button>
+              </b-modal>
+
               <!--modal para eliminar empleado de la base de datos !-->
               <b-button
                 variant="danger"
@@ -67,7 +125,8 @@
                 Eliminar</b-button>
                <b-modal
                   id="my-modal"
-                  hide-footer>
+                  hide-footer
+                  hide-header>
                  <h4>¿Quieres eliminar el empleado?</h4>
                   <b-button  variant="light" block @click="isEmployeeDeleted" href="/">Si</b-button>
                   <b-button variant="light" block @click="$bvModal.hide('my-modal')">No</b-button>
@@ -102,6 +161,13 @@ export default {
       },
       currentIndex: 0,
       employeeDeleted: false,
+      form: {
+        id: '',
+        employee_name: '',
+        employee_salary: 0,
+        employee_age: 0,
+        profile_image: '',
+      },
     };
   },
   methods: {
