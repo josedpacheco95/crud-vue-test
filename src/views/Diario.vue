@@ -54,8 +54,10 @@
       <td>SI</td>
       <td>
         Editado:Al final lo realice. En el console log
-        se puede ver todo con detalles, hay errores
-        con de network pero me imagino que es por la api
+        se puede ver todo con detalles. A veces marca
+        errores de network y a veces no,
+        pero es mas por el servidor de la api que otra
+        cosa.
       </td>
     </tr>
     <tr>

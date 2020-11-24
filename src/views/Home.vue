@@ -4,8 +4,6 @@
     <employee-tab
       :employees="employees"
     />
-    <main-nav-bar/>
-    <employee-nav/>
   </div>
 </template>
 
@@ -14,9 +12,6 @@ import EmployeeTab from '@/components/EmployeeTab.vue';
 import EmployeeNav from '../components/EmployeeNav.vue';
 import api from '../employeeApi'; // eslint-disable-line
 
-import mainNavBar from '../components/mainNavBar.vue';
-import EmployeeNav from '../components/EmployeeNav.vue';
-
 export default {
 
   name: 'Home',
@@ -24,8 +19,6 @@ export default {
   components: {
     EmployeeNav,
     EmployeeTab,
-    mainNavBar,
-    EmployeeNav,
 
   },
   data() {
