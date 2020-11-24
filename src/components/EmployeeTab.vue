@@ -139,6 +139,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import api from '../employeeApi';
 
 export default {
@@ -216,17 +217,26 @@ export default {
       });
     },
     isUpdated() {
-      fetch(`https://dummy.restapiexample.com/api/v1/update/${this.form.id}`,
-        {
-          method: 'PUT',
-          body: JSON.stringify(
-            this.form,
-          ),
-        }).then((response) => response.json())
-        .then((res) => console.log(res))
+      const http = axios.create({
+        baseURL: 'https://dummy.restapiexample.com/api/v1',
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Methods': 'PUT',
+        },
+      });
+      http.put(`/update/${this.form.id}`, this.form)
+        .then((res) => {
+          console.log(res.data);
+          this.onReset();
+        })
         .catch((e) => {
-          console.log(e);
+          console.error(e);
         });
+    },
+    onReset() {
+      this.form.employee_name = '';
+      this.form.employee_salary = 0;
+      this.form.employee_age = 0;
     },
   },
   mounted() {
