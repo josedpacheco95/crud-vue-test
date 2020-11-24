@@ -75,7 +75,7 @@
                   >
                   <b-form-input
                     id="input-1"
-                    v-model="form.email"
+                    v-model="form.employee_name"
                     type="text"
                     required
                     placeholder="Introduzca nombre y apellido"
@@ -88,7 +88,7 @@
                     label-for="input-2">
                     <b-form-input
                       id="input-2"
-                      v-model="form.name"
+                      v-model="form.employee_salary"
                       type="number"
                       required
                       placeholder="Introduzca salario..."
@@ -100,7 +100,7 @@
                     label-for="input-3">
                     <b-form-input
                       id="input-3"
-                      v-model="form.name"
+                      v-model="form.employee_age"
                       type="number"
                       required
                       placeholder="Introduzca edad..."
@@ -153,7 +153,7 @@ export default {
     return {
       currentEmployee: false,
       employeeDetail: {
-        id: '',
+        id: 0,
         employee_name: '',
         employee_salary: 0,
         employee_age: 0,
@@ -162,7 +162,7 @@ export default {
       currentIndex: 0,
       employeeDeleted: false,
       form: {
-        id: '',
+        id: 0,
         employee_name: '',
         employee_salary: 0,
         employee_age: 0,
@@ -175,6 +175,7 @@ export default {
       this.currentIndex = index + 1;
       let showIndex=this.currentIndex;// eslint-disable-line
       this.currentEmployee = true;
+      this.form.id = showIndex;
       this.getDetailData(showIndex);
       this.isDeleted(showIndex);// eslint-disable-line
       return console.log(this.currentIndex+1);// eslint-disable-line
@@ -205,6 +206,27 @@ export default {
             console.log(e);
           });
       }
+    },
+    onSubmit(e) {
+      e.preventDefault();
+      this.isUpdated();
+      console.log(JSON.stringify(this.form));
+      this.$nextTick(() => {
+        this.$bvModal.hide('modal-update');
+      });
+    },
+    isUpdated() {
+      fetch(`https://dummy.restapiexample.com/api/v1/update/${this.form.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(
+            this.form,
+          ),
+        }).then((response) => response.json())
+        .then((res) => console.log(res))
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
   mounted() {
